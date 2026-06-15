@@ -1,0 +1,11 @@
+.footer { border-top: 1px solid rgba(201,168,76,0.15); padding: 2rem 0; }
+.inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold); }
+.copy { font-size: 0.75rem; color: var(--muted); }
+.links { display: flex; gap: 1.5rem; }
+.link { background: none; border: none; font-size: 0.75rem; color: var(--muted); transition: color 0.3s; padding: 0; }
+.link:hover { color: var(--gold); }
+
+@media (max-width: 600px) {
+  .inner { flex-direction: column; text-align: center; }
+}

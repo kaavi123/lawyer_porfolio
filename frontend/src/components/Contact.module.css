@@ -1,0 +1,45 @@
+.section { padding: 7rem 0; }
+.grid {
+  display: grid; grid-template-columns: 1fr 1.2fr;
+  gap: 5rem; align-items: start;
+}
+.intro { color: var(--muted); font-size: 0.95rem; line-height: 1.75; margin-bottom: 2rem; }
+.infoList { display: flex; flex-direction: column; gap: 1.5rem; }
+.infoItem { display: flex; gap: 1rem; align-items: flex-start; }
+.icon { font-size: 1.1rem; color: var(--gold); min-width: 22px; margin-top: 2px; }
+.infoLabel { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.25rem; }
+.infoVal { font-size: 0.88rem; color: var(--offwhite); line-height: 1.5; }
+
+.form { display: flex; flex-direction: column; gap: 1.1rem; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+.group { display: flex; flex-direction: column; gap: 0.35rem; }
+.label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.input {
+  background: rgba(201,168,76,0.05);
+  border: 1px solid rgba(201,168,76,0.2);
+  color: var(--offwhite); padding: 0.85rem 1rem;
+  font-family: var(--font-body); font-size: 0.9rem;
+  outline: none; transition: border-color 0.3s; width: 100%;
+}
+.input:focus { border-color: var(--gold); }
+.input option { background: var(--navy); }
+.textarea { resize: vertical; min-height: 120px; }
+
+.submit {
+  background: var(--gold); color: var(--navy);
+  padding: 1rem 2rem; border: none;
+  font-size: 0.85rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  transition: all 0.3s; align-self: flex-start;
+}
+.submit:hover:not(:disabled) { background: var(--gold-light); }
+.submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.success { padding: 0.9rem 1rem; background: rgba(45,106,79,0.2); border: 1px solid rgba(45,106,79,0.5); color: #6fcf97; font-size: 0.88rem; }
+.error { padding: 0.9rem 1rem; background: rgba(180,50,50,0.15); border: 1px solid rgba(180,50,50,0.4); color: #eb5757; font-size: 0.88rem; }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; gap: 3rem; }
+  .row { grid-template-columns: 1fr; }
+  .section { padding: 4rem 0; }
+}

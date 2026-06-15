@@ -1,0 +1,114 @@
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  padding-top: 5rem;
+  position: relative; overflow: hidden;
+}
+.bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+.grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center;
+  padding-top: 4rem; padding-bottom: 4rem;
+  position: relative; z-index: 2;
+}
+.content {}
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  line-height: 1.12; font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+.title em { font-style: italic; color: var(--gold-light); display: block; }
+.desc {
+  font-size: 1rem; line-height: 1.75;
+  color: var(--muted); max-width: 440px; margin-bottom: 2.5rem;
+}
+.actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+.btnPrimary {
+  background: var(--gold); color: var(--navy);
+  padding: 0.85rem 2rem; border: none;
+  font-size: 0.85rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  transition: all 0.3s;
+}
+.btnPrimary:hover { background: var(--gold-light); transform: translateY(-2px); }
+.btnGhost {
+  background: none; border: none;
+  color: var(--offwhite); font-size: 0.85rem; font-weight: 500;
+  letter-spacing: 0.06em; transition: color 0.3s;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.btnGhost::after { content: '→'; transition: transform 0.3s; }
+.btnGhost:hover { color: var(--gold); }
+.btnGhost:hover::after { transform: translateX(4px); }
+
+/* Scales visual */
+.visual { display: flex; justify-content: center; align-items: center; position: relative; }
+.glowRing {
+  position: absolute;
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 4s ease-in-out infinite;
+}
+.scales { width: 360px; height: 360px; position: relative; z-index: 1; }
+
+.beam { transform-origin: 50% 33%; animation: tilt 6s ease-in-out infinite; }
+.panLeft { animation: panL 6s ease-in-out infinite; }
+.panRight { animation: panR 6s ease-in-out infinite; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+@keyframes tilt {
+  0%, 100% { transform: rotate(0deg); }
+  33% { transform: rotate(4deg); }
+  66% { transform: rotate(-4deg); }
+}
+@keyframes panL {
+  0%, 100% { transform: translateY(0); }
+  33% { transform: translateY(12px); }
+  66% { transform: translateY(-8px); }
+}
+@keyframes panR {
+  0%, 100% { transform: translateY(0); }
+  33% { transform: translateY(-12px); }
+  66% { transform: translateY(8px); }
+}
+
+/* Stats */
+.statsBar {
+  border-top: 1px solid rgba(201,168,76,0.2);
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+  padding: 2.5rem 0;
+}
+.statsGrid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.stat { text-align: center; }
+.stat + .stat { border-left: 1px solid rgba(201,168,76,0.15); }
+.statNum {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem; font-weight: 700; color: var(--gold); line-height: 1;
+}
+.statLabel {
+  font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); margin-top: 0.4rem;
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .visual { display: none; }
+  .statsGrid { grid-template-columns: 1fr 1fr; }
+  .stat + .stat { border-left: none; }
+}
